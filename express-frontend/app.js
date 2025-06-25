@@ -1,10 +1,11 @@
-from flask import Flask, jsonify
+const express = require('express');
+const app = express();
+const PORT = 3000;
 
-app = Flask(__name__)
+app.get('/', (req, res) => {
+  res.send('Hello from Express frontend running in Kubernetes!');
+});
 
-@app.route('/')
-def home():
-    return jsonify(message="Hello from Flask backend running in Kubernetes!")
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
